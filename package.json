@@ -1,0 +1,24 @@
+{
+  "name": "nodejs-md-link-checker",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gabrielgfw/nodejs-md-link-checker.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gabrielgfw/nodejs-md-link-checker/issues"
+  },
+  "homepage": "https://github.com/gabrielgfw/nodejs-md-link-checker#readme",
+  "dependencies": {
+    "chalk": "^5.0.0"
+  }
+}
