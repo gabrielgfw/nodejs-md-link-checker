@@ -1,7 +1,7 @@
 import chalk from 'chalk';
 import fs from 'fs';
 
-pegaArquivo('./arquivos/texto1.md');
+//pegaArquivo('./arquivos/texto1.md');
 
 
 function extraiLinks(texto) {
@@ -19,7 +19,7 @@ function trataErro(erro) {
   throw new Error(chalk.red(erro.code, 'Não há arquivo no caminho'));
 }
 
-async function pegaArquivo(caminhoDoArquivo) {
+export default async function pegaArquivo(caminhoDoArquivo) {
   const encoding = 'utf-8';
   try {
     const texto = await fs.promises.readFile(caminhoDoArquivo, encoding);
