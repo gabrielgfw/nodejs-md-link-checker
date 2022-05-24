@@ -1,7 +1,10 @@
 import chalk from 'chalk';
 import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
 
-//pegaArquivo('./arquivos/texto1.md');
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 
 function extraiLinks(texto) {
@@ -12,6 +15,10 @@ function extraiLinks(texto) {
   while((temp = regex.exec(texto)) !== null) {
     arrayResultados.push({ [temp[1]]: temp[2] });
   }
+
+  if(!arrayResultados.length) {
+    return 'Não há links disponíveis no arquivo informado.';
+  }
   return arrayResultados;
 }
 
@@ -20,11 +27,10 @@ function trataErro(erro) {
 }
 
 export default async function pegaArquivo(caminhoDoArquivo) {
-  const encoding = 'utf-8';
+  const encoding = 'utf-8';  
   try {
     const texto = await fs.promises.readFile(caminhoDoArquivo, encoding);
-    const linksExtraidos = extraiLinks(texto);
-    console.log(chalk.yellow(JSON.stringify(linksExtraidos)));
+    return extraiLinks(texto);
   } catch(error) {
     trataErro(error);
   }
